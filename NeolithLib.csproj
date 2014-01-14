@@ -36,11 +36,17 @@
     <Compile Include="Bootstrap\BootstrapAttribute.cs" />
     <Compile Include="Bootstrap\IModInfo.cs" />
     <Compile Include="Config\NeolithConfig.cs" />
+    <Compile Include="NeolithLibInfo.cs" />
+    <Compile Include="API\Events\PreConsoleSystemEvent.cs" />
+    <Compile Include="API\Events\PostConsoleSystemEvent.cs" />
+    <Compile Include="API\ConsoleSystemHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Bootstrap\" />
     <Folder Include="Config\" />
+    <Folder Include="API\" />
+    <Folder Include="API\Events\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="LitJSON">
@@ -54,6 +60,18 @@
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Users\Stephen\Desktop\RustServer\System.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Users\Stephen\Desktop\RustServer\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>C:\Users\Stephen\Desktop\RustServer\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.ID">
+      <HintPath>C:\Users\Stephen\Desktop\RustServer\Facepunch.ID.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Users\Stephen\Desktop\RustServer\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
