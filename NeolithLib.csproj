@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -32,6 +32,10 @@
     <NoStdLib>True</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="API\Events\PostActivateEvent.cs" />
+    <Compile Include="API\Events\PostToggleEvent.cs" />
+    <Compile Include="API\Events\PreActivateEvent.cs" />
+    <Compile Include="API\Events\PreToggleEvent.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Bootstrap\BootstrapAttribute.cs" />
     <Compile Include="Bootstrap\IModInfo.cs" />
@@ -42,12 +46,7 @@
     <Compile Include="API\ConsoleSystemHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Bootstrap\" />
-    <Folder Include="Config\" />
-    <Folder Include="API\" />
-    <Folder Include="API\Events\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="LitJSON">
       <HintPath>C:\Users\Stephen\Desktop\RustServer\LitJSON.dll</HintPath>
