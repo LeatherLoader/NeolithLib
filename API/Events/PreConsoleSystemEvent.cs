@@ -10,7 +10,7 @@
 using System;
 
 
-namespace NeolithLib
+namespace NeolithLib.API.Events
 {
 	public class PreConsoleSystemEvent
 	{

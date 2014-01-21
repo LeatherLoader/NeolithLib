@@ -10,8 +10,9 @@
 using System;
 using System.Reflection;
 using NeolithLib.Bootstrapper;
+using NeolithLib.API.Events;
 
-namespace NeolithLib
+namespace NeolithLib.API
 {
 	[Bootstrap]
 	public class ConsoleSystemEvents : Facepunch.MonoBehaviour

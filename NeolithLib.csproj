@@ -45,6 +45,9 @@
     <Compile Include="API\ConsoleSystemEvents.cs" />
     <Compile Include="Bootstrapper\BootstrapAttribute.cs" />
     <Compile Include="Bootstrapper\IModInfo.cs" />
+    <Compile Include="API\Events\OwnershipInclusionEvent.cs" />
+    <Compile Include="API\Events\OwnershipExclusionEvent.cs" />
+    <Compile Include="API\DeployableEvents.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />

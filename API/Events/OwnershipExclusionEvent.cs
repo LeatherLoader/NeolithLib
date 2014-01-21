@@ -10,18 +10,22 @@
 using System;
 namespace NeolithLib.API.Events
 {
-	public class PostConsoleSystemEvent
+	public class OwnershipExclusionEvent
 	{
-		public ConsoleSystem.Arg Argument { get; set; }
-		public bool WasCancelled { get; private set; }
-		public bool WasHandled { get; private set; }
-		public bool IsHandled { get; set; }
+		public Controllable User { get; set; }
+		public DeployableObject Target { get; set; }
+		public bool IsExcluded { get; private set; }
 
-		public PostConsoleSystemEvent (ConsoleSystem.Arg arg, bool wasCancelled, bool wasHandled)
+		public OwnershipExclusionEvent (Controllable user, DeployableObject target)
 		{
-			this.Argument = arg;
-			this.WasCancelled = wasCancelled;
-			this.WasHandled = wasHandled;
+			this.User = user;
+			this.Target = target;
+			this.IsExcluded = false;
+		}
+
+		public void Exclude()
+		{
+			this.IsExcluded = true;
 		}
 	}
 }

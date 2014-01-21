@@ -13,7 +13,7 @@ using NeolithLib.API.Events;
 using NeolithLib.Bootstrapper;
 
 
-namespace NeolithLib
+namespace NeolithLib.API
 {
 	[Bootstrap]
 	public class ActivatableEvents : Facepunch.MonoBehaviour
@@ -30,7 +30,7 @@ namespace NeolithLib
 			DontDestroyOnLoad (this.gameObject);
 		}
 
-		public static void RegisterConsoleSystemHandler<T>() where T : UnityEngine.MonoBehaviour
+		public static void RegisterActivatableHandler<T>() where T : UnityEngine.MonoBehaviour
 		{
 			ActivatableEvents.mInstance.gameObject.AddComponent<T> ();
 		}
