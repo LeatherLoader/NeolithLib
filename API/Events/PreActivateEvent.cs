@@ -14,6 +14,7 @@ namespace NeolithLib.API.Events
         public ulong Timestamp { get; private set; }
         public ActivationResult Result { get; set; }
         public bool Handled { get; set; }
+		public bool Cancelled { get; set; }
 
         public PreActivateEvent(Character instigator, GameObject target, IActivatable activatable, ulong timestamp)
         {
@@ -23,6 +24,7 @@ namespace NeolithLib.API.Events
             this.Timestamp = timestamp;
             this.Result = ActivationResult.Success;
             this.Handled = false;
+			this.Cancelled = false;
         }
     }
 }

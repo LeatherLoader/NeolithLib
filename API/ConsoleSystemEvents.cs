@@ -9,18 +9,18 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Reflection;
-using NeolithLib.Bootstrap;
+using NeolithLib.Bootstrapper;
 
 namespace NeolithLib
 {
 	[Bootstrap]
-	public class ConsoleSystemHandler : Facepunch.MonoBehaviour
+	public class ConsoleSystemEvents : Facepunch.MonoBehaviour
 	{
-		private static ConsoleSystemHandler mInstance = null;
+		private static ConsoleSystemEvents mInstance = null;
 
-		public ConsoleSystemHandler() 
+		public ConsoleSystemEvents() 
 		{
-			ConsoleSystemHandler.mInstance = this;
+			ConsoleSystemEvents.mInstance = this;
 		}
 
 		public void Awake()
@@ -33,7 +33,7 @@ namespace NeolithLib
 			ConsoleSystem.Arg arguments = (ConsoleSystem.Arg)parameters [0];
 
 			PreConsoleSystemEvent preEvent = new PreConsoleSystemEvent (arguments);
-			ConsoleSystemHandler.mInstance.gameObject.SendMessage ("PreConsoleSystemCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			ConsoleSystemEvents.mInstance.gameObject.SendMessage ("PreConsoleSystemCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 
 			parameters[0] = preEvent.Argument;
 
@@ -43,13 +43,13 @@ namespace NeolithLib
 			}
 
 			PostConsoleSystemEvent postEvent = new PostConsoleSystemEvent ((ConsoleSystem.Arg)parameters [0], preEvent.IsCancelled, preEvent.IsHandled);
-			ConsoleSystemHandler.mInstance.gameObject.SendMessage ("PostConsoleSystemCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			ConsoleSystemEvents.mInstance.gameObject.SendMessage ("PostConsoleSystemCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 			parameters [0] = postEvent.Argument;
 		}
 
 		public static void RegisterConsoleSystemHandler<T>() where T : UnityEngine.MonoBehaviour
 		{
-			ConsoleSystemHandler.mInstance.gameObject.AddComponent<T> ();
+			ConsoleSystemEvents.mInstance.gameObject.AddComponent<T> ();
 		}
 	}
 }

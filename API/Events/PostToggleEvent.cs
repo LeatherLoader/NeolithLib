@@ -15,9 +15,10 @@ namespace NeolithLib.API.Events
         public ActivationToggleState State { get; private set; }
         public ActivationResult Result { get; private set; }
         public bool WasHandled { get; private set; }
+		public bool WasCancelled { get; private set; }
         public bool Handled { get; set; }
 
-        public PostToggleEvent(Character instigator, GameObject target, IActivatableToggle toggle, ulong timestamp, ActivationToggleState state, ActivationResult result, bool wasHandled)
+        public PostToggleEvent(Character instigator, GameObject target, IActivatableToggle toggle, ulong timestamp, ActivationToggleState state, ActivationResult result, bool wasHandled, bool wasCancelled)
         {
             this.Instigator = instigator;
             this.Target = target;
@@ -27,6 +28,7 @@ namespace NeolithLib.API.Events
             this.Result = result;
             this.WasHandled = wasHandled;
             this.Handled = false;
+			this.WasCancelled = false;
         }
     }
 }

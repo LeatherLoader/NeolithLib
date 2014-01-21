@@ -14,9 +14,10 @@ namespace NeolithLib.API.Events
         public ulong Timestamp { get; private set; }
         public ActivationResult Result { get; private set; }
         public bool WasHandled { get; private set; }
+		public bool WasCancelled { get; private set; }
         public bool Handled { get; set; }
 
-        public PostActivateEvent(Character instigator, GameObject target, IActivatable activatable, ulong timestamp, ActivationResult result, bool wasHandled)
+        public PostActivateEvent(Character instigator, GameObject target, IActivatable activatable, ulong timestamp, ActivationResult result, bool wasHandled, bool wasCancelled)
         {
             this.Instigator = instigator;
             this.Target = target;
@@ -24,6 +25,7 @@ namespace NeolithLib.API.Events
             this.Timestamp = timestamp;
             this.Result = result;
             this.WasHandled = wasHandled;
+			this.WasCancelled = wasCancelled;
             this.Handled = false;
         }
     }
