@@ -9,9 +9,11 @@
 //------------------------------------------------------------------------------
 using System;
 using NeolithLib.API.Events;
+using NeolithLib.Bootstrapper;
 
 namespace NeolithLib.API
 {
+	[Bootstrap]
 	public class DeployableEvents : Facepunch.MonoBehaviour
 	{
 		private static DeployableEvents mInstance = null;
