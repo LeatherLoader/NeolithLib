@@ -68,11 +68,9 @@ namespace NeolithLib.API
 			carrier.SendMessage("PreCreateCarriedDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 			DeployableEvents.mInstance.SendMessage("PreCreateDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 
-			if (!preEvent.Cancelled) {
-				preEvent.DataBlock.SetupDeployableObject(stream, preEvent.ItemRepresentation, ref info, preEvent.DeployableObject, preEvent.Carrier);
-			}
+			preEvent.DataBlock.SetupDeployableObject(stream, preEvent.ItemRepresentation, ref info, preEvent.DeployableObject, preEvent.Carrier);
 
-			PostCreateDeployableEvent postEvent = new PostCreateDeployableEvent (preEvent.DataBlock, preEvent.Character, preEvent.Item, preEvent.ItemRepresentation, preEvent.DeployableObject, preEvent.Carrier, preEvent.Handled, preEvent.Cancelled);
+			PostCreateDeployableEvent postEvent = new PostCreateDeployableEvent (preEvent.DataBlock, preEvent.Character, preEvent.Item, preEvent.ItemRepresentation, preEvent.DeployableObject, preEvent.Carrier, preEvent.Handled);
 			itemRep.SendMessage ("PostCreateDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 			character.SendMessage ("PostCreateDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
 			deployable.SendMessage ("PostDeployableCreatingCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);

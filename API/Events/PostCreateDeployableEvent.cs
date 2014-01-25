@@ -18,11 +18,10 @@ namespace NeolithLib.API.Events
 		public ItemRepresentation ItemRepresentation { get; set; }
 		public DeployableObject DeployableItem { get; set; }
 		public TransCarrier Carrier { get; set; }
-		public bool WasCancelled { get; set; }
 		public bool WasHandled { get; set; }
 		public bool Handled { get; set; }
 
-		public PostCreateDeployableEvent (DeployableItemDataBlock dataBlock, Character character, IInventoryItem item, ItemRepresentation itemRep, DeployableObject deployable, TransCarrier carrier, bool wasHandled, bool wasCancelled)
+		public PostCreateDeployableEvent (DeployableItemDataBlock dataBlock, Character character, IInventoryItem item, ItemRepresentation itemRep, DeployableObject deployable, TransCarrier carrier, bool wasHandled)
 		{
 			this.DataBlock = dataBlock;
 			this.Character = character;
@@ -31,7 +30,6 @@ namespace NeolithLib.API.Events
 			this.DeployableItem = deployable;
 			this.Carrier = carrier;
 			this.WasHandled = wasHandled;
-			this.WasCancelled = wasCancelled;
 			this.Handled = false;
 		}
 	}
