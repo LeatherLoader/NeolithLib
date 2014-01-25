@@ -60,6 +60,8 @@
     <Compile Include="API\Events\PostControllableHasAccessEvent.cs" />
     <Compile Include="API\Events\PreIsLockActiveEvent.cs" />
     <Compile Include="API\Events\PostIsLockActiveEvent.cs" />
+    <Compile Include="API\Events\PreCreateDeployableEvent.cs" />
+    <Compile Include="API\Events\PostCreateDeployableEvent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />
@@ -87,6 +89,9 @@
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>C:\Users\Stephen\Desktop\RustServer\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="uLink">
+      <HintPath>C:\Users\Stephen\Desktop\RustServer\uLink.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

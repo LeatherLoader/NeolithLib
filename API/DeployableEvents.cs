@@ -55,6 +55,30 @@ namespace NeolithLib.API
 
 			return isOwner;
 		}
+
+		public static void InvokeDeployableCreated(DeployableItemDataBlock dataBlock, ItemRepresentation itemRep, DeployableObject deployable, TransCarrier carrier, uLink.BitStream stream, ref uLink.NetworkMessageInfo info) {
+			IInventoryItem item;
+			itemRep.Item<IInventoryItem>(out item);
+			Character character = item.inventory.inventoryHolder.GetComponent<Character>();
+
+			PreCreateDeployableEvent preEvent = new PreCreateDeployableEvent(dataBlock, character, item, itemRep, deployable, carrier);
+			itemRep.SendMessage("PreCreateDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			character.SendMessage("PreCreateDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			deployable.SendMessage("PreDeployableCreatingCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			carrier.SendMessage("PreCreateCarriedDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			DeployableEvents.mInstance.SendMessage("PreCreateDeployableCommand", preEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+
+			if (!preEvent.Cancelled) {
+				preEvent.DataBlock.SetupDeployableObject(stream, preEvent.ItemRepresentation, ref info, preEvent.DeployableObject, preEvent.Carrier);
+			}
+
+			PostCreateDeployableEvent postEvent = new PostCreateDeployableEvent (preEvent.DataBlock, preEvent.Character, preEvent.Item, preEvent.ItemRepresentation, preEvent.DeployableObject, preEvent.Carrier, preEvent.Handled, preEvent.Cancelled);
+			itemRep.SendMessage ("PostCreateDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			character.SendMessage ("PostCreateDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			deployable.SendMessage ("PostDeployableCreatingCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			carrier.SendMessage ("PostCreateCarriedDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+			DeployableEvents.mInstance.SendMessage ("PostCreateDeployableCommand", postEvent, UnityEngine.SendMessageOptions.DontRequireReceiver);
+		}
 	}
 }
 
