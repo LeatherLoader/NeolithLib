@@ -53,6 +53,13 @@
     <Compile Include="API\Events\PostTakeDamageEvent.cs" />
     <Compile Include="API\Events\PreHealEvent.cs" />
     <Compile Include="API\Events\PostHealEvent.cs" />
+    <Compile Include="API\LockableEvents.cs" />
+    <Compile Include="API\Events\PreSteamIdHasAccessEvent.cs" />
+    <Compile Include="API\Events\PostSteamIdHasAccessEvent.cs" />
+    <Compile Include="API\Events\PreControllableHasAccessEvent.cs" />
+    <Compile Include="API\Events\PostControllableHasAccessEvent.cs" />
+    <Compile Include="API\Events\PreIsLockActiveEvent.cs" />
+    <Compile Include="API\Events\PostIsLockActiveEvent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />
