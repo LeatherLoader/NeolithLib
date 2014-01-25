@@ -62,6 +62,9 @@
     <Compile Include="API\Events\PostIsLockActiveEvent.cs" />
     <Compile Include="API\Events\PreCreateDeployableEvent.cs" />
     <Compile Include="API\Events\PostCreateDeployableEvent.cs" />
+    <Compile Include="API\ServerManagementEvents.cs" />
+    <Compile Include="API\Events\PreGetPlayerCampEvent.cs" />
+    <Compile Include="API\Events\PostGetPlayerCampEvent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />

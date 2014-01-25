@@ -10,10 +10,12 @@
 using System;
 using UnityEngine;
 using NeolithLib.API.Events;
+using NeolithLib.Bootstrapper;
 
 
 namespace NeolithLib.API
 {
+	[Bootstrap]
 	public class LockableEvents : Facepunch.MonoBehaviour
 	{
 		private static LockableEvents mInstance = null;
